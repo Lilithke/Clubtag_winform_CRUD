@@ -5,6 +5,8 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clubtag_winform_CRUD", "Clubtag_winform_CRUD.csproj", "{05640831-8617-40FF-A471-D2593CBBAD68}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Club_tagsag_console", "..\Club_tagsag_console\Club_tagsag_console.csproj", "{E44535F7-941E-4A86-B68E-E252F7EAAB2F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{05640831-8617-40FF-A471-D2593CBBAD68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05640831-8617-40FF-A471-D2593CBBAD68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05640831-8617-40FF-A471-D2593CBBAD68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E44535F7-941E-4A86-B68E-E252F7EAAB2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E44535F7-941E-4A86-B68E-E252F7EAAB2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E44535F7-941E-4A86-B68E-E252F7EAAB2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E44535F7-941E-4A86-B68E-E252F7EAAB2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

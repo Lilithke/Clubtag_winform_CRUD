@@ -74,11 +74,11 @@ namespace Clubtag_winform_CRUD
         private void Tagok_SelectedIndexChanged(object sender, EventArgs e)
         {
             Tagsag tag = (Tagsag)Tagok.SelectedItem;
-            textBox_id.Text = tag.Id.ToString();
-            textBox_nev.Text = tag.Fullname.ToString();
-            textBox_erdeklodes.Text = tag.Interest.ToString();
-            comboBox_ertekeles.Text = tag.Rating.ToString();
-            dateTimePicker_date.Value = DateTime.Parse(tag.Entry);
+            textBox_id.Text = tag.TagsagId.ToString();
+            textBox_nev.Text = tag.TagsagFullname.ToString();
+            textBox_erdeklodes.Text = tag.TagsagInterest.ToString();
+            comboBox_ertekeles.Text = tag.TagsagRating.ToString();
+            dateTimePicker_date.Value = DateTime.Parse(tag.TagsagEntry);
         }
 
         private void button_uj_Click(object sender, EventArgs e)
@@ -90,12 +90,12 @@ namespace Clubtag_winform_CRUD
                 textBox_nev.Focus();
                 return;
             }
-            tagsag.Fullname = textBox_nev.Text;
-            tagsag.Entry = dateTimePicker_date.Value.ToLongTimeString();
-            tagsag.Rating = (long)comboBox_ertekeles.SelectedValue;
-            tagsag.Interest = textBox_erdeklodes.Text;
+            tagsag.TagsagFullname = textBox_nev.Text;
+            tagsag.TagsagEntry = dateTimePicker_date.Value.ToLongTimeString();
+            tagsag.TagsagRating = (long)comboBox_ertekeles.SelectedValue;
+            tagsag.TagsagInterest = textBox_erdeklodes.Text;
 
-            var json = JsonConvert.SerializeObject(tag);
+            var json = JsonConvert.SerializeObject(tagsag);
             var data = new StringContent(json,Encoding.UTF8,"application/json");
             var response = client.PostAsync(endPoint,data).Result;
             if (response.IsSuccessStatusCode)
@@ -140,15 +140,15 @@ namespace Clubtag_winform_CRUD
             }
 
             Tagsag tagsag = new Tagsag();
-            tagsag.Id = long.Parse(textBox_id.Text);
-            tagsag.Fullname = textBox_nev.Text;
-            tagsag.Entry = dateTimePicker_date.Value.ToLongTimeString();
-            tagsag.Rating = (long)comboBox_ertekeles.SelectedValue;
-            tagsag.Interest = textBox_erdeklodes.Text;
+            tagsag.TagsagId = long.Parse(textBox_id.Text);
+            tagsag.TagsagFullname = textBox_nev.Text;
+            tagsag.TagsagEntry = dateTimePicker_date.Value.ToLongTimeString();
+            tagsag.TagsagRating = (long)comboBox_ertekeles.SelectedValue;
+            tagsag.TagsagInterest = textBox_erdeklodes.Text;
 
             var json = JsonConvert.SerializeObject(tagsag);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
-            string endPointUpdate = $"{endPoint}/{tagsag.Id}";
+            string endPointUpdate = $"{endPoint}/{tagsag.TagsagId}";
             var response = client.PutAsync(endPointUpdate, data).Result;
             if (response.IsSuccessStatusCode)
             {
@@ -172,8 +172,8 @@ namespace Clubtag_winform_CRUD
             if (MessageBox.Show("Valóban törölni szeretné?") == DialogResult.OK)
             {
                 Tagsag tagsag = new Tagsag();
-                tagsag.Id = long.Parse(textBox_id.Text);
-                string endPointUpdate = $"{endPoint}/{tagsag.Id}";
+                tagsag.TagsagId = long.Parse(textBox_id.Text);
+                string endPointUpdate = $"{endPoint}/{tagsag.TagsagId}";
                 var response = client.DeleteAsync(endPointUpdate).Result;
                 if (response.IsSuccessStatusCode)
                 {
